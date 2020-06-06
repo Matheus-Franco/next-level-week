@@ -4,11 +4,12 @@ import knex from "../database/connection";
 class ItemsController {
   async index(request: Request, response: Response) {
     const items = await knex("items").select("*");
+
     const serializedItems = items.map((item) => {
       return {
         id: item.id,
         title: item.title,
-        image: `http:192.168.0.32:3333/uploads/${item.image}`,
+        image: `http:192.168.56.1:3333/uploads/${item.image}`,
       };
     });
     return response.json(serializedItems);
