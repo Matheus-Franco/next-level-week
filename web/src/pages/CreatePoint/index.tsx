@@ -11,7 +11,7 @@ import axios from "axios";
 interface Item {
   id: number;
   title: string;
-  image_url: string;
+  image: string;
 }
 
 interface IBGEUFResponse {
@@ -257,7 +257,7 @@ const CreatePoint = () => {
                 className={selectedItems.includes(item.id) ? "selected" : ""}
                 onClick={() => handleSelectItem(item.id)}
               >
-                <img src={item.image_url} alt={item.title} />
+                <img src={item.image} alt={item.title} />
                 <span>{item.title}</span>
               </li>
             ))}
